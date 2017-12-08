@@ -28,13 +28,14 @@ void main() {
     expect(find.text('Clicked 0 times'), findsOneWidget);
     expect(find.text('Clicked 42 times'), findsNothing);
 
-    // Tap the '+' icon and trigger a frame.
+    // Tap the button three times and trigger a frame.
+    await tester.tap(f);
+    await tester.tap(f);
     await tester.tap(f);
     await tester.pump();
-    await tester.tap(find.byIcon(Icons.add));
 
     // Verify that our counter has incremented.
-    expect(find.text('Clicked 1 times'), findsOneWidget);
+    expect(find.text('Clicked 3 times'), findsOneWidget);
     expect(find.text('Clicked 42 times'), findsNothing);
   });
 }
