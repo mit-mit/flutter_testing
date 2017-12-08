@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter_driver/flutter_driver.dart';
@@ -9,13 +8,16 @@ void main() {
     FlutterDriver driver;
 
     setUpAll(() async {
-      // Connects to the app
+      // Connects to the app.
       driver = await FlutterDriver.connect();
+
+      // Create screenshots directory.
+      new Directory('screenshots').create();
     });
 
     tearDownAll(() async {
       if (driver != null) {
-        // Closes the connection
+        // Closes the connection.
         driver.close();
       }
     });

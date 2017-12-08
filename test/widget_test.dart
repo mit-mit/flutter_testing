@@ -23,13 +23,13 @@ void main() {
     await tester.pump();
 
     // Verify that our counter starts at 0.
-    f = find.byElementType(RaisedButton);
+    f = find.byType(RaisedButton);
     expect(f, findsOneWidget);
     expect(find.text('Clicked 0 times'), findsOneWidget);
     expect(find.text('Clicked 42 times'), findsNothing);
 
     // Tap the '+' icon and trigger a frame.
-    tester.tap(f);
+    await tester.tap(f);
     await tester.pump();
     await tester.tap(find.byIcon(Icons.add));
 
