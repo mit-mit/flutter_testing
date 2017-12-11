@@ -8,6 +8,10 @@ main() async {
 
 class MyApp extends StatelessWidget {
   // This widget is the root of the application.
+
+  final bool showSlowBanner;
+  MyApp({Key key, this.showSlowBanner = true}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -19,6 +23,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: new MyAppHome(title: 'My App'),
+      debugShowCheckedModeBanner: showSlowBanner,
     );
   }
 }
